@@ -52,7 +52,7 @@ export default function Header({ breadcrumbObject = undefined }: { breadcrumbObj
         <Button
           onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
           variant="outline"
-          className="cursor-pointer"
+          className="cursor-pointer hover:text-amber-700 dark:hover:text-amber-500"
         >
           {theme === 'light' ? (
             <Sun />
