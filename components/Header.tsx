@@ -17,7 +17,7 @@ export interface BreadcrumbObject {
 }
 
 export default function Header({ breadcrumbObject = undefined }: { breadcrumbObject?: BreadcrumbObject }) {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const headerLinks: HeaderLink[] = [{
     title: 'Blog',
     href: 'blog'
@@ -50,15 +50,11 @@ export default function Header({ breadcrumbObject = undefined }: { breadcrumbObj
           : <Breadcrumbs breadcrumbObject={breadcrumbObject} />}
         </div>
         <Button
-          onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+          onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
           variant="outline"
           className="cursor-pointer hover:text-amber-700 dark:hover:text-amber-500"
         >
-          {theme === 'light' ? (
-            <Sun />
-          ) : (
-            <MoonStar />
-          )}
+          {resolvedTheme === 'light' ? <Sun /> : <MoonStar />}
         </Button>
       </div>
     </header>
