@@ -6,7 +6,7 @@ export default function ErrorState() {
   const router = useRouter();
 
   return (
-    <div className="font-light text-stone-700">
+    <div className="font-light text-stone-700 dark:text-stone-300">
       <span>Something went wrong here, unable to find the content, sorry about that.</span>
       <br />
       <span onClick={() => router.back()} className="accent-text link-text">Go back.</span>
