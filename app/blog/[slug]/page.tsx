@@ -19,8 +19,9 @@ export default async function BlogPostPage({
 }: {
   params: Promise<{ slug: string }>
 }) {
+  const posts: Post[] = postList;
   const { slug }: { slug: string } = await params;
-  const postObject: Post | undefined = postList.find((post: Post) => post.slug === slug) || {
+  const postObject: Post | undefined = posts.find((post: Post) => post.slug === slug) || {
     id: 0,
     title: "",
     description: "",
@@ -44,7 +45,8 @@ export default async function BlogPostPage({
 }
 
 export function generateStaticParams() {
-  const arrayToReturn: { slug: string }[] = postList.map((post) => { return { slug: post.slug } });
+  const posts: Post[] = postList;
+  const arrayToReturn: { slug: string }[] = posts.map((post: Post) => { return { slug: post.slug } });
 
   return arrayToReturn;
 }

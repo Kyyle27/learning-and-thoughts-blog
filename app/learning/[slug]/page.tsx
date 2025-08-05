@@ -20,7 +20,8 @@ export default async function LearningPostPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug }: { slug: string } = await params;
-  const postObject: Post | undefined = postList.find((post: Post) => post.slug === slug) || {
+  const posts: Post[] = postList;
+  const postObject: Post = postList.find((post: Post) => post.slug === slug) || {
     id: 0,
     title: "",
     description: "",
@@ -44,7 +45,8 @@ export default async function LearningPostPage({
 }
 
 export function generateStaticParams() {
-  const arrayToReturn: { slug: string }[] = postList.map((post) => { return { slug: post.slug } });
+  const posts: Post[] = postList;
+  const arrayToReturn: { slug: string }[] = posts.map((post: Post) => { return { slug: post.slug } });
 
   return arrayToReturn;
 }
