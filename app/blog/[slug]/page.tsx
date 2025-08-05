@@ -1,4 +1,5 @@
 import fs from 'fs';
+import type Post from '@/types/Post';
 import Header from "@/components/Header"
 import ReactMarkdown from "react-markdown";
 import ErrorState from '@/components/ErrorState';
@@ -19,7 +20,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params;
-  const postObject = postList.find((post) => post.slug === slug);
+  const postObject = postList.find((post: Post) => post.slug === slug);
   const postLink = `content/blog/posts/${slug}.md`;
   const fileContent = getFileContent(postLink);
 
