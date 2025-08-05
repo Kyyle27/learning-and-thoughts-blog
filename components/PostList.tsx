@@ -10,7 +10,7 @@ export default function PostList({
 }) {
   return (
     <div className="flex flex-col">
-      {posts.map((post, index): { post: Post, index: number } => (
+      {posts.map((post: Post, index: number) => (
         <PostCard
           post={post}
           isLast={index !== posts?.length - 1}

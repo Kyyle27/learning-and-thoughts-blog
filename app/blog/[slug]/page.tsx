@@ -25,7 +25,7 @@ export default async function BlogPostPage({
 
   return (
     <div>
-      <Header breadcrumbObject={{ homepage: 'blog', children: [{ label: postObject?.title }] }} />
+      <Header breadcrumbObject={{ homepage: 'blog', children: [{ title: postObject?.title || '' }] }} />
       <div className="flex flex-col markdown-content">
         {fileContent ? <ReactMarkdown>{fileContent}</ReactMarkdown> : <ErrorState />}
       </div>

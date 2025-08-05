@@ -6,7 +6,7 @@ import postList from '@/content/blog/posts/postsList.json'
 
 const getFileContent = (postLink: string) => {
   if (fs.existsSync(postLink)) {
-    const fileContent = fs.readFileSync(postLink, 'utf-8');
+    const fileContent = fs.readFileSync(postLink, "utf-8");
 
     return fileContent;
   }
@@ -25,7 +25,7 @@ export default async function LearningPostPage({
 
   return (
     <div>
-      <Header breadcrumbObject={{ homepage: 'learning', children: [{ label: postObject?.title }] }} />
+      <Header breadcrumbObject={{ homepage: "learning", children: [{ title: postObject?.title || '' }] }} />
       <div className="flex flex-col markdown-content">
         {fileContent ? <ReactMarkdown>{fileContent}</ReactMarkdown> : <ErrorState />}
       </div>

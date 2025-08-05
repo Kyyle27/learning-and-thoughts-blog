@@ -60,8 +60,8 @@ export default function Breadcrumbs({ breadcrumbObject }: { breadcrumbObject: Br
             <DropdownMenuContent align="start">
               {Object.entries(headerBaseLinksObject).map(([linkObjectKey, linkObjectValue]) => (
                   <Link
-                    href={linkObjectValue.href}
-                    key={`${linkObjectValue.href}-link`}
+                    href={linkObjectValue?.href || '/'}
+                    key={`${linkObjectKey}-link`}
                   >
                     <DropdownMenuItem className="cursor-pointer">
                       {linkObjectValue.title}
@@ -72,7 +72,7 @@ export default function Breadcrumbs({ breadcrumbObject }: { breadcrumbObject: Br
           </DropdownMenu>
         </BreadcrumbItem>
         {
-          breadcrumbObject?.children && breadcrumbObject.children.map((childObject: any, index: number) => (
+          breadcrumbObject?.children && breadcrumbObject.children.map((childObject: HeaderLink, index: number) => (
             <span key={`breadcrumb-item-${index}`} className="flex flex-row">
               <BreadcrumbSeparator>
                 /
@@ -80,12 +80,12 @@ export default function Breadcrumbs({ breadcrumbObject }: { breadcrumbObject: Br
               {index === itemsNumber - 1
                 ? (
                   <BreadcrumbItem className="ml-1.5">
-                    <BreadcrumbPage>{childObject.label}</BreadcrumbPage>
+                    <BreadcrumbPage>{childObject.title}</BreadcrumbPage>
                   </BreadcrumbItem>
                 )
                 : (
                   <BreadcrumbItem className="ml-1.5">
-                    <BreadcrumbLink href={childObject.href}>{childObject.label}</BreadcrumbLink>
+                    <BreadcrumbLink href={childObject.href}>{childObject.title}</BreadcrumbLink>
                   </BreadcrumbItem>
                 )
               }

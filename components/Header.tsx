@@ -8,7 +8,7 @@ import Breadcrumbs from "./Breadcrumbs";
 
 export interface HeaderLink {
   title: string
-  href: string
+  href?: string
 }
 
 export interface BreadcrumbObject {
@@ -42,7 +42,7 @@ export default function Header({ breadcrumbObject = undefined }: { breadcrumbObj
               className="relative cursor-pointer mr-3 text-stone-700 hover:text-amber-700 dark:hover:text-amber-500 dark:text-stone-300 after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-amber-700 dark:after:bg-amber-500 after:left-0 after:bottom-[-2px] after:absolute after:transition-all after:duration-200 hover:after:w-full hover:-translate-y-1 transition ease-in"
               key={`${linkObject.href}-link`}
             >
-              <Link href={linkObject.href}>
+              <Link href={linkObject?.href || '/'}>
                 {linkObject.title}
               </Link>
             </div>
