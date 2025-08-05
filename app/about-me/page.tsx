@@ -4,6 +4,7 @@ export default function AboutMe() {
   return (
     <div>
       <Header breadcrumbObject={{ homepage: "aboutMe" }} />
+
       <div>
         <h1 className="primary-title">Who am I? A summary of my CS journey, and my future</h1>
         <div>

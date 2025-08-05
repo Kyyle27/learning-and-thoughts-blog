@@ -35,8 +35,8 @@ export default function Breadcrumbs({ breadcrumbObject }: { breadcrumbObject: Br
       href: '/about-me'
     }
   }
-  const baseLinkObject = headerBaseLinksObject[breadcrumbObject.homepage]
-  const itemsNumber = breadcrumbObject?.children?.length || 0;
+  const baseLinkObject: HeaderLink = headerBaseLinksObject[breadcrumbObject.homepage]
+  const itemsNumber: number = breadcrumbObject?.children?.length || 0;
 
   return (
     <Breadcrumb className="mt-1">

@@ -10,6 +10,7 @@ export default function Blog() {
   return (
     <div>
       <Header breadcrumbObject={{ homepage: 'blog' }} />
+
       <ArticleListTitleDescription title="Blog" description="All the articles I've written on development, technologies and my thoughts." />
 
       <PostList posts={blogPostList} path="blog" />

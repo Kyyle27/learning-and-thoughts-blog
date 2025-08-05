@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Github, Mail, Copyright, Dot, Linkedin } from 'lucide-react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear: number = new Date().getFullYear();
 
   return (
     <footer className="flex md:flex-row flex-col justify-center items-center text-stone-700 dark:text-stone-300 border-t border-t-stone-300 dark:border-t-stone-700 mt-5 pt-5 mb-3">

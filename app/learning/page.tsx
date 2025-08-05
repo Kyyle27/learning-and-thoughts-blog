@@ -10,6 +10,7 @@ export default function Learning() {
   return (
     <div>
       <Header breadcrumbObject={{ homepage: 'learning' }} />
+
       <ArticleListTitleDescription title="Learning" description="All the summaries about what I've learned throughout my journey" />
 
       <PostList posts={learningPostList} path="learning" />

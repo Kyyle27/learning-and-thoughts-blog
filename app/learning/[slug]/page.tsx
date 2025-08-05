@@ -5,9 +5,9 @@ import ReactMarkdown from "react-markdown";
 import ErrorState from '@/components/ErrorState';
 import postList from '@/content/blog/posts/postsList.json'
 
-const getFileContent = (postLink: string) => {
+const getFileContent = (postLink: string): string | null => {
   if (fs.existsSync(postLink)) {
-    const fileContent = fs.readFileSync(postLink, "utf-8");
+    const fileContent: string = fs.readFileSync(postLink, "utf-8");
 
     return fileContent;
   }
@@ -19,14 +19,15 @@ export default async function LearningPostPage({
 }: {
   params: Promise<{ slug: string }>
 }) {
-  const { slug } = await params;
-  const postObject = postList.find((post: Post) => post.slug === slug);
-  const postLink = `content/learning/posts/${slug}.md`;
-  const fileContent = getFileContent(postLink);
+  const { slug }: { slug: string } = await params;
+  const postObject: Post | undefined = postList.find((post: Post) => post.slug === slug);
+  const postLink: string = `content/learning/posts/${slug}.md`;
+  const fileContent: string | null = getFileContent(postLink);
 
   return (
     <div>
       <Header breadcrumbObject={{ homepage: "learning", children: [{ title: postObject?.title || '' }] }} />
+
       <div className="flex flex-col markdown-content">
         {fileContent ? <ReactMarkdown>{fileContent}</ReactMarkdown> : <ErrorState />}
       </div>
@@ -35,9 +36,9 @@ export default async function LearningPostPage({
 }
 
 export function generateStaticParams() {
-  const arrayToReturn = postList.map((post) => { return { slug: post.slug } });
+  const arrayToReturn: { slug: string }[] = postList.map((post) => { return { slug: post.slug } });
 
   return arrayToReturn;
 }
 
-export const dynamicParams = false
+export const dynamicParams: boolean = false;
