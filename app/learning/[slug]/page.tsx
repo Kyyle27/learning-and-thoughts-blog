@@ -20,7 +20,15 @@ export default async function LearningPostPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug }: { slug: string } = await params;
-  const postObject: Post | undefined = postList.find((post: Post) => post.slug === slug);
+  const postObject: Post | undefined = postList.find((post: Post) => post.slug === slug) || {
+    id: 0,
+    title: "",
+    description: "",
+    slug: slug,
+    publishedOn: "",
+    readingTime: 0,
+    tag: ""
+  };
   const postLink: string = `content/learning/posts/${slug}.md`;
   const fileContent: string | null = getFileContent(postLink);
 
