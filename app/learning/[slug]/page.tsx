@@ -2,8 +2,7 @@ import fs from 'fs';
 import type { Metadata } from 'next';
 import type Post from '@/types/Post';
 import Header from "@/components/Header"
-import ReactMarkdown from "react-markdown";
-import ErrorState from '@/components/ErrorState';
+import PostContent from '@/components/PostContent';
 import postList from '@/content/blog/posts/postsList.json'
 
 const getFileContent = (postLink: string): string | null => {
@@ -61,9 +60,7 @@ export default async function LearningPostPage({
     <div>
       <Header breadcrumbObject={{ homepage: "learning", children: postObject && postObject?.title ? [{ title: postObject.title || '' }] : undefined }} />
 
-      <div className="flex flex-col markdown-content">
-        {fileContent ? <ReactMarkdown>{fileContent}</ReactMarkdown> : <ErrorState />}
-      </div>
+      <PostContent postObject={postObject} fileContent={fileContent} />
     </div>
   )
 }
