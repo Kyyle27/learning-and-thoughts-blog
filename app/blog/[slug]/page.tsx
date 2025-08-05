@@ -1,4 +1,5 @@
 import fs from 'fs';
+import type { Metadata } from 'next';
 import type Post from '@/types/Post';
 import Header from "@/components/Header"
 import ReactMarkdown from "react-markdown";
@@ -12,6 +13,29 @@ const getFileContent = (postLink: string): string | null => {
     return fileContent;
   }
   return null;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug }: { slug: string } = await params;
+  const posts: Post[] = postList;
+  const postObject: Post = posts.find((post: Post) => post.slug === slug) || {
+    id: 0,
+    title: "",
+    description: "",
+    slug: slug,
+    publishedOn: "",
+    readingTime: 0,
+    tag: ""
+  };
+  const pageTitle = `${postObject?.title} | lucaslpr.com`;
+
+  return {
+    title: pageTitle
+  }
 }
 
 export default async function BlogPostPage({

@@ -1,4 +1,9 @@
+import type { Metadata } from 'next'
 import Header from "@/components/Header"
+
+export const metadata: Metadata = {
+  title: 'About me | lucaslpr.com',
+}
 
 export default function AboutMe() {
   return (

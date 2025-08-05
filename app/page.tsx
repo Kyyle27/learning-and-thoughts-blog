@@ -1,6 +1,11 @@
-import Header from "@/components/Header"
 import Link from "next/link"
+import type { Metadata } from 'next'
+import Header from "@/components/Header"
 import { Code, Brain, Blocks, Hash } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: 'Home | lucaslpr.com',
+}
 
 export default function Home() {
   return (

@@ -1,8 +1,13 @@
+import type { Metadata } from 'next';
 import type Post from '@/types/Post';
 import Header from "@/components/Header"
 import PostList from "@/components/PostList";
 import postList from "@/content/learning/posts/postsList.json"
 import ArticleListTitleDescription from "@/components/ListingTitleDescription";
+
+export const metadata: Metadata = {
+  title: 'Learning | lucaslpr.com',
+}
 
 export default function Learning() {
   const learningPostList: Post[] = postList;
