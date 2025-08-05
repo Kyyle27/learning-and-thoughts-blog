@@ -50,8 +50,9 @@ export default function Header({ breadcrumbObject = undefined }: { breadcrumbObj
           : <Breadcrumbs breadcrumbObject={breadcrumbObject} />}
         </div>
         <Button
-          onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
           variant="outline"
+          aria-label="Theme change button"
+          onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
           className="cursor-pointer hover:text-amber-700 dark:hover:text-amber-500"
         >
           {resolvedTheme === 'light' ? <Sun /> : <MoonStar />}

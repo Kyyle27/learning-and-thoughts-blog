@@ -11,6 +11,7 @@ export default function Footer() {
           <Link href="https://github.com/Kyyle27" target="_blank">
             <Button
               variant="outline"
+              aria-label="Github profile button"
               className="cursor-pointer hover:text-amber-700 dark:hover:text-amber-500"
             >
               <Github size={18} />
@@ -19,6 +20,7 @@ export default function Footer() {
           <Link href="https://www.linkedin.com/in/lucas-lapierre/" target="_blank">
             <Button
               variant="outline"
+              aria-label="LinkedIn profile button"
               className="cursor-pointer hover:text-amber-700 dark:hover:text-amber-500"
             >
               <Linkedin size={18} />
@@ -27,6 +29,7 @@ export default function Footer() {
           <Link href="mailto:lucas.lapierre27@gmail.com">
             <Button
               variant="outline"
+              aria-label="Mail button"
               className="cursor-pointer hover:text-amber-700 dark:hover:text-amber-500"
             >
               <Mail size={18} />
