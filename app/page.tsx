@@ -42,7 +42,7 @@ export default function Home() {
           </div>
           <div className="mt-6">
             <h2 className="text-xl font-semibold mb-2">Talk to me</h2>
-            <p>You can <Link href="mailto:lucas.lapierre27@gmail.com" className="accent-text link-text">send me a mail</Link>, or contact me through LinkedIn if you want to talk about everything, I'm always open to discussion!</p>
+            <p>You can <Link href="mailto:lucas.lapierre27@gmail.com" className="accent-text link-text">send me an email</Link>, or contact me through <Link href="https://www.linkedin.com/in/lucas-lapierre/" target="_blank" className="accent-text link-text">LinkedIn</Link> if you want to talk about anything, I'm always open to discussion!</p>
           </div>
           <div className="mt-6">
             <h2 className="text-xl font-semibold mb-2">Special thanks</h2>
